@@ -242,20 +242,18 @@
       <div class="box m-5">
         <div class="content has-text-justified">
           <p>
-            Chemistry plays a crucial role in many domains, such as drug discovery and
-            material science. While large language models (LLMs) such as GPT-4 exhibit
-            remarkable capabilities on natural language processing tasks, existing work shows
-            their performance on chemistry tasks is discouragingly low. In this paper, however,
-            we demonstrate that our developed LLMs can achieve very strong results on a
-            comprehensive set of chemistry tasks, outperforming the most advanced GPT-4
-            across all the tasks by a substantial margin and approaching the SoTA task-specific
-            models. The key to our success is a large-scale, comprehensive, high-quality dataset
-            for instruction tuning named SMolInstruct. It contains 14 meticulously selected
-            chemistry tasks and over three million high-quality samples, laying a solid foundation
-            for training and evaluating LLMs for chemistry. Based on SMolInstruct, we
-            fine-tune a set of open-source LLMs, among which, we find that Mistral serves as
-            the best base model for chemistry tasks. We further conduct analysis on the impact
-            of trainable parameters, providing insights for future research.
+            Chemistry plays a crucial role in many domains, such as drug discovery and material science.
+            While large language models (LLMs) such as GPT-4 exhibit remarkable capabilities on natural language processing tasks,
+            existing work shows their performance on chemistry tasks is discouragingly low. In this paper, however, we demonstrate
+            that our developed LLMs can achieve very strong results on a comprehensive set of chemistry tasks,
+            <i>outperforming the most advanced GPT-4 across all the tasks by a substantial margin
+              <strong>(e.g., 94.5% exact match for converting SMILES to Formula vs. GPT-4's 16.4%;
+                32.9% exact match for Retrosynthesis vs. GPT-4's 1.2%)</strong> and approaching the SoTA task-specific models.</i>
+            The key to our success is a large-scale, comprehensive, high-quality dataset for instruction tuning named SMolInstruct.
+            It contains 14 meticulously selected chemistry tasks and over three million high-quality samples, laying a solid foundation
+            for training and evaluating LLMs for chemistry. Based on SMolInstruct, we fine-tune a set of open-source LLMs, among which,
+            we find that Mistral serves as the best base model for chemistry tasks. We further conduct analysis on the impact of
+            trainable parameters, providing insights for future research.
           </p>
 
         </div>
