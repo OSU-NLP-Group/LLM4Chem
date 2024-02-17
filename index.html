@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> LlaSMol </title>
 
-  <link rel="icon" href="./static/images/seeact-icon-crop.png">
+  <link rel="icon" href="./static/images/llasmol.png">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -62,6 +62,9 @@
             More Research
           </a>
           <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://imageomics.github.io/bioclip/">
+              BioClip
+            </a>
             <a class="navbar-item" href="https://osu-nlp-group.github.io/SeeAct/">
               SeeAct
             </a>
@@ -129,7 +132,7 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">The Ohio State University</span><br />
-              
+
             </div>
 
             <br>
@@ -145,8 +148,7 @@
                 <!-- PDF Link. -->
                 <span class="link-block">
                   <!-- @Botao TODO: change links -->
-                  <a href="" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -212,14 +214,14 @@
                 <!--              </span>-->
                 <!-- Twitter Link. -->
                 <!-- <span class="link-block"> -->
-                  <!-- <a href="https://twitter.com/ysu_nlp/status/1742398541660639637" target="_blank" -->
-                    <!-- class="external-link button is-normal is-rounded is-dark"> -->
-                    <!-- <span class="icon has-text-white"> -->
-                      <!-- <i class="fa-brands fa-x-twitter"></i> -->
-                      <!-- <p style="font-size:18px">🌐</p> -->
-                    <!-- </span> -->
-                    <!-- <span>Twitter</span> -->
-                  <!-- </a> -->
+                <!-- <a href="https://twitter.com/ysu_nlp/status/1742398541660639637" target="_blank" -->
+                <!-- class="external-link button is-normal is-rounded is-dark"> -->
+                <!-- <span class="icon has-text-white"> -->
+                <!-- <i class="fa-brands fa-x-twitter"></i> -->
+                <!-- <p style="font-size:18px">🌐</p> -->
+                <!-- </span> -->
+                <!-- <span>Twitter</span> -->
+                <!-- </a> -->
                 <!-- </span> -->
               </div>
             </div>
@@ -237,55 +239,55 @@
     }
   </style>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="content has-text-centered">
-        <img src="static/images/ChemLLMFig.svg" alt="14 tasks" class="center" style="width: 100%; height: auto;">
-      </div>
-      <div class="content has-text-justified">
-        <p>
-          SMolInstruct is an instruction dataset for chemistry that focuses on small molecules.
-          It contains <strong>14 meticulously selected tasks</strong> and <strong>over 3M carefully curated samples</strong>.
-          Based on this dataset, we train LlaSMol,
-          a series of large language models that <strong>beat GPT-4</strong> and achieve the <strong>best performance among existing LLMs for chemistry</strong>.
-        </p>
-        <br/>
-      </div>
-    </div>
-  </section>
 
-<section class="hero is-light is-small">
-    <div class="hero-body has-text-centered">
-      <h1 class="title is-1 mmmu">
-        <!-- <img src="/static/images/llasmol.svg" style="width:1em;vertical-align: middle" alt="Logo" /> -->
-        <span class="mmmu" style="vertical-align: middle">Abstract</span>
-      </h1>
-    </div>
-  </section>
-  
   <section class="hero section">
     <div class="container is-max-desktop">
       <div class="box m-5">
         <div class="content has-text-justified">
           <p>
-            Chemistry plays a crucial role in many domains, such as drug discovery and material science.
-            While large language models (LLMs) such as GPT-4 exhibit remarkable capabilities on natural language processing tasks,
-            existing work shows their performance on chemistry tasks is discouragingly low. In this paper, however, we demonstrate
+            <strong>TL;DR</strong>: SMolInstruct is an instruction dataset for chemistry that focuses on small
+            molecules. It contains <strong>14 meticulously selected tasks</strong> and <strong>over 3M carefully curated
+              samples</strong>. Based on this dataset, we train LlaSMol, a series of large language models that
+            <strong>significantly outperform</strong> GPT-4 and achieve <strong>the best performance among existing
+              LLMs</strong> for chemistry.
+          </p>
+          <p></p>
+          <div>
+            <video id="teaser" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/video/LlaSMol.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p></p>
+          <p>
+            <strong>Abstract</strong>: Chemistry plays a crucial role in many domains, such as drug discovery and
+            material science.
+            While large language models (LLMs) such as GPT-4 exhibit remarkable capabilities on natural language
+            processing tasks,
+            existing work shows their performance on chemistry tasks is discouragingly low. In this paper, however, we
+            demonstrate
             that our developed LLMs can achieve very strong results on a comprehensive set of chemistry tasks,
             <i>outperforming the most advanced GPT-4 across all the tasks by a substantial margin
               <strong>(e.g., 94.5% exact match for converting SMILES to Formula vs. GPT-4's 16.4%;
-                32.9% exact match for Retrosynthesis vs. GPT-4's 1.2%)</strong> and approaching the SoTA task-specific models.</i>
-            The key to our success is a large-scale, comprehensive, high-quality dataset for instruction tuning named SMolInstruct.
-            It contains 14 meticulously selected chemistry tasks and over three million high-quality samples, laying a solid foundation
-            for training and evaluating LLMs for chemistry. Based on SMolInstruct, we fine-tune a set of open-source LLMs, among which,
-            we find that Mistral serves as the best base model for chemistry tasks. We further conduct analysis on the impact of
+                32.9% exact match for Retrosynthesis vs. GPT-4's 1.2%)</strong> and approaching the SoTA task-specific
+              models.</i>
+            The key to our success is a large-scale, comprehensive, high-quality dataset for instruction tuning named
+            SMolInstruct.
+            It contains 14 meticulously selected chemistry tasks and over three million high-quality samples, laying a
+            solid foundation
+            for training and evaluating LLMs for chemistry. Based on SMolInstruct, we fine-tune a set of open-source
+            LLMs, among which,
+            we find that Mistral serves as the best base model for chemistry tasks. We further conduct analysis on the
+            impact of
             trainable parameters, providing insights for future research.
           </p>
-
         </div>
+
       </div>
+
     </div>
   </section>
+
+
 
   <!-- DATASET SECTION -->
   <section class="hero is-light is-small">
@@ -302,29 +304,49 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <!-- <h2 class="title is-3">Overview of SMolInstruct</h2> -->
-          
-          <div class="content has-text-centered">
-            <img src="./static/images/tables/tasks.png" alt="task information table" style="width: 100%;" />
-          </div>
-          <div class="content has-text-justified">
-            <p>
-              <strong>The merits of SMolInstruct</strong>:
-            </p>
-            <p>
-              (1) <strong>Large-Scale</strong>. SMolInstruct consists of 3.4M distinct samples and 1.6M distinct molecules,
-              with a diverse range of sizes, structures, and properties, showcasing an
-              extensive coverage of diverse chemical knowledge.
-            </p>
-            <p>
-              (2) <strong>Comprehensive</strong>. SMolInstruct contains 4 types of chemical tasks (14 tasks in total), emerging
-              as the most comprehensive instruction tuning dataset for small molecules. Notably, the tasks are
-              meticulously selected to build a strong chemistry foundation.
-            </p>
-            <p>
-              (3) <strong>High-Quality</strong>. Rigorous processing steps have been implemented to exclude problematic and low-
-              quality samples. Along with careful data splitting and canonicalization of SMILES representations
-              SMolInstruct stands as a high-quality resource valuable for future research.
-            </p>
+          <div class="container is-max-desktop">
+            <div class="content has-text-justified">
+              <p>
+                We propose SMolInstruct, an instruction dataset for chemistry that focuses on small molecules.
+                It contains <strong>14 meticulously selected tasks</strong> and <strong>over 3M carefully curated
+                  samples</strong>. The tasks are illustrated in the following figure.
+              </p>
+            </div>
+
+            <div class="content has-text-centered">
+              <img src="static/images/ChemLLMFig.svg" alt="14 tasks" class="center" style="width: 100%; height: auto;">
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                The following figure shows the statistics of SMolInstruct.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img src="./static/images/tables/tasks.png" alt="task information table" style="width: 100%;" />
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                <strong>The merits of SMolInstruct</strong>:
+              </p>
+              <p>
+                (1) <strong>Large-Scale</strong>. SMolInstruct consists of 3.4M distinct samples and 1.6M distinct
+                molecules,
+                with a diverse range of sizes, structures, and properties, showcasing an
+                extensive coverage of diverse chemical knowledge.
+              </p>
+              <p>
+                (2) <strong>Comprehensive</strong>. SMolInstruct contains 4 types of chemical tasks (14 tasks in total),
+                emerging
+                as the most comprehensive instruction tuning dataset for small molecules. Notably, the tasks are
+                meticulously selected to build a strong chemistry foundation.
+              </p>
+              <p>
+                (3) <strong>High-Quality</strong>. Rigorous processing steps have been implemented to exclude
+                problematic and low-
+                quality samples. Along with careful data splitting and canonicalization of SMILES representations
+                SMolInstruct stands as a high-quality resource valuable for future research.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -344,26 +366,34 @@
 
   <section class="section">
     <div class="container">
-      
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <div class="content has-text-justified">
-            <p>
-              LlaSMol (<strong>l</strong>arge <strong>la</strong>nguage models for <strong>s</strong>mall <strong>mol</strong>ecules) is a series of LLMs built for conducting various chemistry tasks.
-              Specifically, we use Galactica, Llama 2, Code Llama, and Mistral as the base models, and conduct instruction tuning with LoRA
-              on our SMolInstruct dataset. The resulting models are named as <strong>LlaSMol<sub>Galactica</sub></strong>, 
-              <strong>LlaSMol<sub>Llama 2</sub></strong>, <strong>LlaSMol<sub>Code Llama</sub></strong>, <strong>LlaSMol<sub>Mistral</sub></strong>,
-              respectively.
-            </p>
+          <!-- <h2 class="title is-3">Overview of SMolInstruct</h2> -->
+          <div class="container is-max-desktop">
+            <div class="content has-text-justified">
+              <p>
+                LlaSMol (<strong>l</strong>arge <strong>la</strong>nguage models for <strong>s</strong>mall
+                <strong>mol</strong>ecules) is a series of LLMs built for conducting various chemistry tasks.
+                Specifically, we use Galactica, Llama 2, Code Llama, and Mistral as the base models, and conduct
+                instruction tuning with LoRA
+                on our SMolInstruct dataset. The resulting models are named as
+                <strong>LlaSMol<sub>Galactica</sub></strong>,
+                <strong>LlaSMol<sub>Llama 2</sub></strong>, <strong>LlaSMol<sub>Code Llama</sub></strong>,
+                <strong>LlaSMol<sub>Mistral</sub></strong>,
+                respectively.
+              </p>
+            </div>
+
+            <div class="columns is-centered">
+              <img style="width: 20%; padding: 2%;" src="./static/images/llasmol_galactica.svg">
+              <img style="width: 20%; padding: 2%;" src="./static/images/llasmol_llama.svg">
+              <img style="width: 20%; padding: 2%;" src="./static/images/llasmol_code_llama.svg">
+              <img style="width: 20%; padding: 2%;" src="./static/images/llasmol_mistral.svg">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="columns is-centered">
-        <img style="width: 20%; padding: 2%;" src="./static/images/llasmol_galactica.svg">
-        <img style="width: 20%; padding: 2%;" src="./static/images/llasmol_llama.svg">
-        <img style="width: 20%; padding: 2%;" src="./static/images/llasmol_code_llama.svg">
-        <img style="width: 20%; padding: 2%;" src="./static/images/llasmol_mistral.svg">
+
       </div>
     </div>
   </section>
@@ -383,30 +413,41 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <!-- <h2 class="title is-3">Overview of SMolInstruct</h2> -->
-          <div class="content has-text-justified">
-            <p>
-              We comprehensively compare our LlasMol models with existing LLMs as well as the task-specific, non-LLM based SoTA models.
-              The main results are shown in the following tables.
-            </p>
-          </div>
-          <div class="content has-text-centered">
-            <p style="text-align:left;font-size:15px"> Results for name conversion (NC) and property prediction (PP) tasks. The metrics include exact match (EM), validity (Valid),
-              root mean square error (RMSE), and accuracy (Acc), where EM and Valid are in percentage. </p>
-            <img src="static/images/tables/o_1.png" alt="results table 1" width="100%" />
-            <p></p>
-            <p style="text-align:left;font-size:15px"> Results for molecule captioning (MC), molecule generation (MG), forward synthesis (FS), and retrosynthesis (RS).
-              The metrics include METEOR score (METEOR), exact match (EM), Morgan fingerprint-based tanimoto similarity (FTS), and validity (Valid), 
-              where EM, FTS, and Valid are in percentage. </p>
-            <img src="static/images/tables/o_2.png" alt="results table 2" width="100%" />
-            <p></p>
-            <p style="text-align:left"><strong>Main takeaways:</strong></p>
-            <p style="text-align:left">(1) LlaSMol models significantly outperform the existing LLMs on all the tasks,
-              underscoring the effectiveness of the proposed SMolInstruct dataset and the benefits of fine-
-              tuning.</p>
-            <p style="text-align:left">(2) Our four LlaSMol models show substantial differences in their performance, and LlasMol<sub>Mistral</sub> achieves the best, emphasizing
-              the significant impact of base models on downstream tasks</p>
-            <p style="text-align:left">(3) Our LlaSMol models exhibit comparable performance to SoTA models even with only a small proportion of parameters being tuned (40M, 0.59%), 
-              showing great potential to surpass task-specific models and work as universal models capable of addressing multiple chemistry tasks.</p>
+          <div class="container is-max-desktop">
+            <div class="content has-text-justified">
+              <p>
+                We comprehensively compare our LlasMol models with existing LLMs as well as the task-specific, non-LLM
+                based SoTA models.
+                The main results are shown in the following tables.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <p style="text-align:left;font-size:15px"> Results for name conversion (NC) and property prediction (PP)
+                tasks. The metrics include exact match (EM), validity (Valid),
+                root mean square error (RMSE), and accuracy (Acc), where EM and Valid are in percentage. </p>
+              <img src="static/images/tables/o_1.png" alt="results table 1" width="100%" />
+              <p></p>
+              <p style="text-align:left;font-size:15px"> Results for molecule captioning (MC), molecule generation (MG),
+                forward synthesis (FS), and retrosynthesis (RS).
+                The metrics include METEOR score (METEOR), exact match (EM), Morgan fingerprint-based tanimoto
+                similarity
+                (FTS), and validity (Valid),
+                where EM, FTS, and Valid are in percentage. </p>
+              <img src="static/images/tables/o_2.png" alt="results table 2" width="100%" />
+              <p></p>
+              <p style="text-align:left"><strong>Main takeaways:</strong></p>
+              <p style="text-align:left">(1) LlaSMol models significantly outperform the existing LLMs on all the tasks,
+                underscoring the effectiveness of the proposed SMolInstruct dataset and the benefits of fine-
+                tuning.</p>
+              <p style="text-align:left">(2) Our four LlaSMol models show substantial differences in their performance,
+                and LlasMol<sub>Mistral</sub> achieves the best, emphasizing
+                the significant impact of base models on downstream tasks</p>
+              <p style="text-align:left">(3) Our LlaSMol models exhibit comparable performance to SoTA models even with
+                only a small proportion of parameters being tuned (40M, 0.59%),
+                showing great potential to surpass task-specific models and work as universal models capable of
+                addressing
+                multiple chemistry tasks.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -426,14 +467,14 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <!-- <h2 class="title is-3 has-text-centered">Citation</h2> -->
-      <p>If our paper or related resources prove valuable to your research, we kindly ask for citation. Please feel free to contact us with any inquiries.</p>
-      <pre><code>
-      @article{yu2024llasmol,
-        title={LlaSMol: Advancing Large Language Models for Chemistry with a Large-Scale, Comprehensive, High-Quality Instruction Tuning Dataset},
-        author={Botao Yu and Frazier N. Baker and Ziqi Chen and Xia Ning and Huan Sun},
-        journal={arXiv preprint arXiv:2402.XXXX},
-        year={2024}
-      }
+      <p>If our paper or related resources prove valuable to your research, we kindly ask for citation. Please feel free
+        to contact us with any inquiries.</p>
+      <pre><code>@article{yu2024llasmol,
+  title={LlaSMol: Advancing Large Language Models for Chemistry with a Large-Scale, Comprehensive, High-Quality Instruction Tuning Dataset},
+  author={Botao Yu and Frazier N. Baker and Ziqi Chen and Xia Ning and Huan Sun},
+  journal={arXiv preprint arXiv:2402.09391},
+  year={2024}
+}
 </code></pre>
     </div>
   </section>
