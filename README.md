@@ -1,7 +1,7 @@
 # LlaSMol
 This is the official code repository for the paper *LlaSMol: Advancing Large Language Models for Chemistry with a Large-Scale, Comprehensive, High-Quality Instruction Tuning Dataset*.
 
-- Paper: 
+- Paper: https://arxiv.org/abs/2402.09391
 - Page: https://osu-nlp-group.github.io/LLM4Chem
 - Code: https://github.com/OSU-NLP-Group/LLM4Chem
 - Models: https://huggingface.co/osunlp/LLM4Chem
