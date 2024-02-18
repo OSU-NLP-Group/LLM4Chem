@@ -143,10 +143,7 @@ generator.generate('Can you tell me the IUPAC name of <SMILES> C1CCOC1 </SMILES>
 
     Please see the examples in [the above section](#tasks-and-examples).
 
-2. You do not have to canonicalize SMILES, as our code would do it for you.
-
-
-
+2. The code would canonicalize SMILES string automatically, as long as it is wrapped in `<SMILES> ... </SMILES>`.
 
 
 ## To-Do Items
