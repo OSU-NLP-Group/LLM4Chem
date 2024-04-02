@@ -147,7 +147,8 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2402.09391" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/2402.09391" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -244,11 +245,10 @@
       <div class="box m-5">
         <div class="content has-text-justified">
           <p>
-            <strong>TL;DR</strong>: SMolInstruct is an instruction dataset for chemistry that focuses on small
-            molecules. It contains <strong>14 meticulously selected tasks</strong> and <strong>over 3M carefully curated
-              samples</strong>. Based on this dataset, we train LlaSMol, a series of large language models that
-            <strong>significantly outperform</strong> GPT-4 and achieve <strong>the best performance among existing
-              LLMs</strong> for chemistry.
+            <strong>TL;DR</strong>: We propose SMolInstruct, an instruction dataset for chemistry that focuses on small
+            molecules; and LlaSMol, a series of large language models that
+            <strong>substantially outperform</strong> existing LLMs on chemistry tasks.
+              LLMs</strong>.
           </p>
           <p></p>
           <div>
@@ -258,26 +258,28 @@
           </div>
           <p></p>
           <p>
-            <strong>Abstract</strong>: Chemistry plays a crucial role in many domains, such as drug discovery and
-            material science.
-            While large language models (LLMs) such as GPT-4 exhibit remarkable capabilities on natural language
-            processing tasks,
-            existing work shows their performance on chemistry tasks is discouragingly low. In this paper, however, we
-            demonstrate
-            that our developed LLMs can achieve very strong results on a comprehensive set of chemistry tasks,
-            <i>outperforming the most advanced GPT-4 across all the tasks by a substantial margin
-              <strong>(e.g., 94.5% EM for converting SMILES to Formula vs. GPT-4's 16.4%; 
-                32.9% EM for Retrosynthesis vs. GPT-4's ~0%)</strong> and approaching the SoTA task-specific
-              models.</i>
-            The key to our success is a large-scale, comprehensive, high-quality dataset for instruction tuning named
-            SMolInstruct.
-            It contains 14 meticulously selected chemistry tasks and over three million high-quality samples, laying a
-            solid foundation
-            for training and evaluating LLMs for chemistry. Based on SMolInstruct, we fine-tune a set of open-source
-            LLMs, among which,
-            we find that Mistral serves as the best base model for chemistry tasks. We further conduct analysis on the
-            impact of
-            trainable parameters, providing insights for future research.
+            Chemistry plays a crucial role in many domains,
+            such as drug discovery and material science.
+            While large language models (LLMs) such as
+            GPT-4 exhibit remarkable capabilities on natural
+            language processing tasks, existing research indicates that their performance on chemistry tasks
+            is discouragingly low. In this paper, however,
+            we demonstrate that our developed LLMs can
+            achieve very strong results on a comprehensive
+            set of chemistry tasks, outperforming the most
+            advanced GPT-4 and Claude 3 Opus by a substantial margin
+            <strong>(e.g., 93.2% EM for converting SMILES to Formula vs. GPT-4's 4.8% and Claude 3 Opus's 9.2%; 32.9% EM
+              for Retrosynthesis vs. GPT-4's ~0.0% and Claude 3 Opus's 1.1%)</strong>. To accomplish this, we propose
+            SMolInstruct, a large-scale, comprehensive,
+            and high-quality dataset for instruction tuning.
+            It contains 14 selected chemistry tasks and over
+            three million samples, laying a solid foundation
+            for training and evaluating LLMs for chemistry.
+            Using SMolInstruct, we fine-tune a set of
+            open-source LLMs, among which, we find that
+            Mistral serves as the best base model for chemistry tasks. Our analysis further demonstrates the
+            critical role of the proposed dataset in driving the
+            performance improvements.
           </p>
         </div>
 
@@ -313,7 +315,8 @@
             </div>
 
             <div class="content has-text-centered">
-              <img src="static/images/ChemLLMFig.svg" alt="14 tasks" class="center" style="width: 100%; height: auto;">
+              <img src="static/images/task_overview.svg" alt="14 tasks" class="center"
+                style="width: 100%; height: auto;">
             </div>
             <div class="content has-text-justified">
               <p>
@@ -321,29 +324,30 @@
               </p>
             </div>
             <div class="content has-text-centered">
-              <img src="./static/images/tables/tasks.png" alt="task information table" style="width: 100%;" />
+              <img src="./static/images/tables/statistics.png" alt="task information table" style="width: 100%;" />
             </div>
             <div class="content has-text-justified">
               <p>
                 <strong>The merits of SMolInstruct</strong>:
               </p>
               <p>
-                (1) <strong>Large-Scale</strong>. SMolInstruct consists of 3.4M distinct samples and 1.6M distinct
-                molecules,
-                with a diverse range of sizes, structures, and properties, showcasing an
-                extensive coverage of diverse chemical knowledge.
+                <strong>Large-Scale</strong>. SMolInstruct consists of 3.3M samples and 1.6M distinct molecules, with a
+                diverse range of
+                sizes, structures, and properties, showcasing an extensive coverage of diverse chemical knowledge.
               </p>
               <p>
-                (2) <strong>Comprehensive</strong>. SMolInstruct contains 4 types of chemical tasks (14 tasks in total),
-                emerging
-                as the most comprehensive instruction tuning dataset for small molecules. Notably, the tasks are
-                meticulously selected to build a strong chemistry foundation.
+                <strong>Comprehensive</strong>. SMolInstruct contains 4 types of
+                chemical tasks (14 tasks in total), emerging as the most comprehensive instruction tuning dataset for
+                small molecules.
+                Notably, the tasks are meticulously selected to build a strong
+                chemistry foundation model and to adapt to real-world applications.
               </p>
               <p>
-                (3) <strong>High-Quality</strong>. Rigorous processing steps have been implemented to exclude
-                problematic and low-
-                quality samples. Along with careful data splitting and canonicalization of SMILES representations
-                SMolInstruct stands as a high-quality resource valuable for future research.
+                <strong>High-Quality</strong>. Rigorous processing steps have been
+                implemented to exclude problematic and low-quality samples. Along with careful data splitting and
+                canonicalization
+                of SMILES representations, SMolInstruct stands as a
+                high-quality resource valuable for future research.
               </p>
             </div>
           </div>
@@ -421,12 +425,14 @@
               </p>
             </div>
             <div class="content has-text-centered">
-              <p style="text-align:left;font-size:15px"> Results for name conversion (NC) and property prediction (PP)
+              <p style="text-align:left;font-size:15px"> The following table shows the results for name conversion (NC)
+                and property prediction (PP)
                 tasks. The metrics include exact match (EM), validity (Valid),
-                root mean square error (RMSE), and accuracy (Acc), where EM and Valid are in percentage. </p>
+                root mean square error (RMSE), and accuracy (Acc), where EM, Valid, and Acc are in percentage. </p>
               <img src="static/images/tables/o_1.png" alt="results table 1" width="100%" />
               <p></p>
-              <p style="text-align:left;font-size:15px"> Results for molecule captioning (MC), molecule generation (MG),
+              <p style="text-align:left;font-size:15px"> The following table shows results for molecule captioning (MC),
+                molecule generation (MG),
                 forward synthesis (FS), and retrosynthesis (RS).
                 The metrics include METEOR score (METEOR), exact match (EM), Morgan fingerprint-based tanimoto
                 similarity
@@ -436,16 +442,23 @@
               <p></p>
               <p style="text-align:left"><strong>Main takeaways:</strong></p>
               <p style="text-align:left">(1) LlaSMol models significantly outperform the existing LLMs on all the tasks,
-                underscoring the effectiveness of the proposed SMolInstruct dataset and the benefits of fine-
-                tuning.</p>
+                underscoring the effectiveness of the proposed SMolInstruct dataset and the benefits of fine-tuning.</p>
               <p style="text-align:left">(2) Our four LlaSMol models show substantial differences in their performance,
                 and LlasMol<sub>Mistral</sub> achieves the best, emphasizing
                 the significant impact of base models on downstream tasks</p>
-              <p style="text-align:left">(3) Our LlaSMol models exhibit comparable performance to SoTA models even with
-                only a small proportion of parameters being tuned (40M, 0.59%),
-                showing great potential to surpass task-specific models and work as universal models capable of
-                addressing
-                multiple chemistry tasks.</p>
+              <p style="text-align:left">
+                (3) Although LlaSMol models do not outperform SoTA models on all the tasks, they demonstrate considerable
+                potential for further improvements.
+                Compared to previous efforts, they greatly narrowed the gap between LLMs and SoTA task-specific models.
+                Remarkably, LlaSMol<sub>Mistral</sub> attains such performance with only a small proportion of its parameters
+                fine-tuned (41.9M, 0.58\%). Our further experiments suggest its immense
+                potential to surpass task-specific models through more extensive fine-tuning and serve as a strong
+                foundation model for chemistry applications.
+              </p>
+
+              <p style="text-align:left">
+                Please check out our <a href="https://arxiv.org/abs/2402.09391">paper</a> for findings regarding SMILES vs. SELFIES, the benefits of SMILES canonicalization, multi-task synergies, and more. 
+              </p>
             </div>
           </div>
         </div>
@@ -465,7 +478,7 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <!-- <h2 class="title is-3 has-text-centered">Citation</h2> -->
-      <p>If our paper or related resources prove valuable to your research, we kindly ask for citation. Please feel free
+      <p>If our paper or related resources are valuable to your research/applications, we kindly ask for citation. Please feel free
         to contact us with any inquiries.</p>
       <pre><code>@article{yu2024llasmol,
   title={LlaSMol: Advancing Large Language Models for Chemistry with a Large-Scale, Comprehensive, High-Quality Instruction Tuning Dataset},
