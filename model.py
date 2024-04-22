@@ -5,6 +5,9 @@ from peft import PeftModelForCausalLM
 
 BASE_MODELS = {
     'osunlp/LlaSMol-Mistral-7B': 'mistralai/Mistral-7B-v0.1',
+    'osunlp/LlaSMol-Galactica-6.7B': 'facebook/galactica-6.7b',
+    'osunlp/LlaSMol-Llama2-7B': 'meta-llama/Llama-2-7b-hf',
+    'osunlp/LlaSMol-Mistral-7B': 'codellama/CodeLlama-7b-hf',
 }
 
 

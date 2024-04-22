@@ -4,7 +4,11 @@ This is the official code repository for the paper *LlaSMol: Advancing Large Lan
 - Paper: https://arxiv.org/abs/2402.09391
 - Page: https://osu-nlp-group.github.io/LLM4Chem
 - Dataset: https://huggingface.co/datasets/osunlp/SMolInstruct
-- Models: https://huggingface.co/osunlp/LLM4Chem
+- Models:
+  - LlaSMol-Galactica-6.7B: [https://huggingface.co/osunlp/LlaSMol-Galactica-6.7B](https://huggingface.co/osunlp/LlaSMol-Galactica-6.7B)
+  - LlaSMol-Llama2-7B: [https://huggingface.co/osunlp/LlaSMol-Llama2-7B](https://huggingface.co/osunlp/LlaSMol-Llama2-7B)
+  - LlaSMol-CodeLlama-7B: [https://huggingface.co/osunlp/LlaSMol-CodeLlama-7B](https://huggingface.co/osunlp/LlaSMol-CodeLlama-7B)
+  - LlaSMol-Mistral-7B: [https://huggingface.co/osunlp/LlaSMol-Mistral-7B](https://huggingface.co/osunlp/LlaSMol-Mistral-7B)
 
 ## Tasks and Examples
 
