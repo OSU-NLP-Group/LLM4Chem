@@ -1,26 +1,11 @@
 import torch
 from transformers import GenerationConfig
 
-from utils.general_prompter import GeneralPrompter, get_chat_content_llama, get_chat_content_mistral
+from utils.chat_generation import generate_chat
+from utils.general_prompter import GeneralPrompter, get_chat_content
 from utils.smiles_canonicalization import canonicalize_molecule_smiles
 
 from model import load_tokenizer_and_model
-
-
-PROMPT_TEMPLTES = {
-    'osunlp/LlaSMol-Mistral-7B': 'llama',
-}
-
-
-def generate_chat(input_text, output_text=None, prefix_chat=None):
-    chat = [
-        {"role": "user", "content": input_text},
-    ]
-    if output_text is not None:
-        chat.append({"role": "assistant", "content": output_text})
-    if prefix_chat is not None:
-        chat = prefix_chat + chat
-    return chat
 
 
 def tokenize(tokenizer, prompt, add_eos_token=True):
@@ -78,22 +63,17 @@ def canonicalize_smiles_in_text(text, tags=('<SMILES>', '</SMILES>'), keep_text_
 
 
 class LlaSMolGeneration(object):
-    def __init__(self, model_name, base_model=None, prompt_template='auto'):
-        assert prompt_template in ('auto', 'llama', 'mistral')
-        if prompt_template == 'auto':
-            if model_name in PROMPT_TEMPLTES:
-                prompt_template = PROMPT_TEMPLTES[model_name]
-        if prompt_template == 'auto':
-            raise ValueError('"prompt_template" is not predefined for model "%s", please set the argument to either "llama" or "mistral".' % model_name)
-        self.prompt_template = prompt_template
-        self.prompter = GeneralPrompter(get_chat_content_llama if self.prompt_template == 'llama' else get_chat_content_mistral)
+    def __init__(self, model_name, base_model=None, device=None):
+        self.prompter = GeneralPrompter(get_chat_content)
 
-        self.tokenizer, self.model = load_tokenizer_and_model(model_name, base_model=base_model)
-        self.device = self.model.device  # TODO
+        self.tokenizer, self.model = load_tokenizer_and_model(model_name, base_model=base_model, device=device)
+        self.device = self.model.device  # TODO: check if this can work
 
     def create_sample(self, text, canonicalize_smiles=True, max_input_tokens=None):
         if canonicalize_smiles:
             real_text = canonicalize_smiles_in_text(text)
+        else:
+            real_text = text
         
         sample = {'input_text': text}
         chat = generate_chat(real_text, output_text=None)
@@ -113,6 +93,7 @@ class LlaSMolGeneration(object):
             eos_token_id=self.model.config.eos_token_id,
             **generation_settings,
         )
+        self.model.eval()
         with torch.no_grad():
             generation_output = self.model.generate(
                 input_ids=input_ids,

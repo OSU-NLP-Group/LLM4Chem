@@ -121,12 +121,25 @@ Query: Identify possible reactants that could have been used to create the speci
 Response: <SMILES> CC(C#N)CCC#N.N </SMILES>
 ```
 
+## Training
+
+If you need to fine-tune a base model on SMolInstruct, please first clone this repo to your machine, and `cd` to the folder, then use the following command.
+
+```bash
+MODELNAME=LlaSMol-Mistral-7B && CUDA_VISIBLE_DEVICES=0,1,2,3 accelerate launch finetune.py --data_path osunlp/SMolInstruct --base_model mistralai/Mistral-7B-v0.1 --wandb_project LlaSMol --wandb_run_name $MODELNAME --wandb_log_model true ---output_dir checkpoint/$MODELNAME
+```
+
+The above is an example command for fine-tuning Mistral with LoRA, using 4 GPUs. If with other base models, the lora settings (e.g., `lora_target_modules`) might need to be modified accordingly.
+
+
 
 ## Usage
 
 Clone this repo to your machine, and `cd` to the folder.
 
 ### Generation
+
+You could use the following code to query the models with your questions.
 
 ```python
 from generation import LlaSMolGeneration
@@ -149,13 +162,38 @@ generator.generate('Can you tell me the IUPAC name of <SMILES> C1CCOC1 </SMILES>
 
 2. The code would canonicalize SMILES string automatically, as long as it is wrapped in `<SMILES> ... </SMILES>`.
 
+### Evaluation on SMolInstruct
 
-## To-Do Items
-These will be uploaded soon:
-- [x] Generation code.
-- [ ] Detailed documentation.
-- [ ] Evaluation code.
-- [ ] More models' weights.
+#### Step 1. Generate responses for samples
+
+Use the following command to apply LlaSMol models to generate responses for samples in SmolInstruct.
+
+```bash
+python generate_on_dataset.py --model_name osunlp/LlaSMol-Mistral-7B --output_dir eval/LlaSMol-Mistral-7B/output 
+```
+
+By default, it generates for all the tasks. You could also specify tasks by adding argument like `--tasks "['forward_synthesis','retrosynthesis']"`.
+If not setting `tasks`, the script will generate for all the tasks in SMolInstruct.
+
+#### Step 2. Extract predicted answer from model outputs
+
+Use the command to extract predicted answers from model's output, and store them in the `pred` domains. By default, it extract the part between the corresponding tags (e.g., `<SMILES> ... </SMILES>`). If the tags are missing or incomplete, the extracted answer will be empty and regarded as "no answer" in metric calculation.
+
+```bash
+python extract_prediction.py --output_dir eval/LlaSMol-Mistral-7B/output --prediction_dir eval/LlaSMol-Mistral-7B/prediction
+```
+
+By default, it extracts predicted answers for all the tasks. It skips task if its output file is not found. You could also specify tasks like  `--tasks "['forward_synthesis','retrosynthesis']"`.
+
+#### Step 3. Calculate metrics
+
+Use the following command to compute metrics for all the tasks.
+
+```bash
+python compute_metrics.py --prediction_dir eval/LlaSMol-Mistral-7B/prediction
+```
+
+By default, it extracts predicted answers for all the tasks. It skips task if its output file is not found. You could also specify tasks like  `--tasks "['forward_synthesis','retrosynthesis']"`.
 
 ## Citation
 If our paper or related resources prove valuable to your research, we kindly ask for citation. Please feel free to contact us with any inquiries.

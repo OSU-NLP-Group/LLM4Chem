@@ -1,17 +1,22 @@
+import sys
+
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModelForCausalLM
 
-
-BASE_MODELS = {
-    'osunlp/LlaSMol-Mistral-7B': 'mistralai/Mistral-7B-v0.1',
-    'osunlp/LlaSMol-Galactica-6.7B': 'facebook/galactica-6.7b',
-    'osunlp/LlaSMol-Llama2-7B': 'meta-llama/Llama-2-7b-hf',
-    'osunlp/LlaSMol-Mistral-7B': 'codellama/CodeLlama-7b-hf',
-}
+from config import BASE_MODELS
 
 
-def load_tokenizer_and_model(model_name, base_model=None):
+def get_device():
+    if torch.cuda.is_available():
+        device = "cuda"
+    else:
+        device = "cpu"
+
+    return device
+
+
+def load_tokenizer_and_model(model_name, base_model=None, device=None):
     if base_model is None:
         if model_name in BASE_MODELS:
             base_model = BASE_MODELS[model_name]
@@ -24,16 +29,8 @@ def load_tokenizer_and_model(model_name, base_model=None):
     tokenizer.cls_token = '<unk>'
     tokenizer.mask_token = '<unk>'
 
-    if torch.cuda.is_available():
-        device = "cuda"
-    else:
-        device = "cpu"
-
-    try:
-        if torch.backends.mps.is_available():
-            device = "mps"
-    except:  # noqa: E722
-        pass
+    if device is None:
+        device = get_device()
     
     if device == "cuda":
         model = AutoModelForCausalLM.from_pretrained(

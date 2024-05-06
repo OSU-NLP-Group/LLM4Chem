@@ -1,23 +1,4 @@
-def get_chat_content_mistral(conversation, tokenize=False):
-    if tokenize:
-        raise NotImplementedError
-    available_roles = ('user', 'assistant')
-    content = '<s>'
-    for idx, item in enumerate(conversation):
-        role = item['role']
-        assert role in available_roles, role
-        if idx % 2 == 0:
-            assert role == 'user'
-            item_content = '[INST] %s [/INST]' % item['content']
-            content += item_content
-        else:
-            assert role == 'assistant'
-            item_content = '%s</s> ' % item['content']
-            content += item_content
-    return content
-
-
-def get_chat_content_llama(conversation, tokenize=False):
+def get_chat_content(conversation, tokenize=False):
     if tokenize:
         raise NotImplementedError
     available_roles = ('user', 'assistant')
