@@ -126,7 +126,7 @@ Response: <SMILES> CC(C#N)CCC#N.N </SMILES>
 If you need to fine-tune a base model on SMolInstruct, please first clone this repo to your machine, and `cd` to the folder, then use the following command.
 
 ```bash
-MODELNAME=LlaSMol-Mistral-7B && CUDA_VISIBLE_DEVICES=0,1,2,3 accelerate launch finetune.py --data_path osunlp/SMolInstruct --base_model mistralai/Mistral-7B-v0.1 --wandb_project LlaSMol --wandb_run_name $MODELNAME --wandb_log_model true ---output_dir checkpoint/$MODELNAME
+MODELNAME=LlaSMol-Mistral-7B && CUDA_VISIBLE_DEVICES=0,1,2,3 accelerate launch finetune.py --data_path osunlp/SMolInstruct --base_model mistralai/Mistral-7B-v0.1 --wandb_project LlaSMol --wandb_run_name $MODELNAME --wandb_log_model true --output_dir checkpoint/$MODELNAME
 ```
 
 The above is an example command for fine-tuning Mistral with LoRA, using 4 GPUs. If with other base models, the lora settings (e.g., `lora_target_modules`) might need to be modified accordingly.
